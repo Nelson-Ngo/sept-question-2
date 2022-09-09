@@ -23,10 +23,8 @@ public class ItemController {
 
     //Get by ID
     @GetMapping(path="/item{id}")
-    public ResponseEntity<Item> getItemId(@PathVariable String id, @RequestBody Item item) {
-        Item finditem = newItemDAO.getItemID(id);
-
-        return ResponseEntity.ok().body(finditem);
+    public Item getItemId(@RequestBody Item item) {
+        return newItemDAO.getItemID(item.getId());
     }
 
     //Get All
@@ -37,8 +35,7 @@ public class ItemController {
 
     //Add
     @PostMapping(path = "/item")
-    public ResponseEntity<Item> addNewItem(
-            @RequestBody Item item
+    public ResponseEntity<Item> addNewItem(@RequestBody Item item
     )
             throws Exception
     {

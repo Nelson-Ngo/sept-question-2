@@ -23,7 +23,9 @@ public class ItemDAO {
     }
 
     public Item getItemID(String id){
+
         return list.getItemList().stream().filter(item -> id.equals(item.getId())).findAny().orElseThrow(null);
+
     }
 
     public void addItem(Item item) {
